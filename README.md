@@ -10,4 +10,11 @@ This web application uses [GWT-Polymer-Elements](https://github.com/vaadin/gwt-p
 
 
 #####TODO:
-* Setup project files
+* ~~Setup project files~~
+* ~~Implement basic UI elements~~
+* ~~Add basic functionality to 'Connect' Button~~
+* Implement RPC structure to retrieve list of Dictionaries
+* Display list of dictionaries
+* ...
+* ...
+* ...

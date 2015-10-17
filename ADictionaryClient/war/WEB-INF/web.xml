@@ -6,10 +6,20 @@
          xmlns="http://java.sun.com/xml/ns/javaee">
 
   <!-- Servlets -->
+  <servlet>
+  	<servlet-name>dictionaryServiceImpl</servlet-name>
+  	<servlet-class>com.hantino.adictionaryclient.server.DictionaryServiceImpl</servlet-class>
+  </servlet>
   
+  <servlet-mapping>
+  	<servlet-name>dictionaryServiceImpl</servlet-name>
+  	<url-pattern>/adictionaryclient/dictionaries</url-pattern>
+  </servlet-mapping>
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>ADictionaryClient.html</welcome-file>
   </welcome-file-list>
+  
+  
 
 </web-app>

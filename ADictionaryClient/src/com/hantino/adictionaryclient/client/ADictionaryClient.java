@@ -6,6 +6,7 @@ import com.vaadin.polymer.Polymer;
 import com.vaadin.polymer.elemental.Function;
 import com.vaadin.polymer.iron.element.IronIconElement;
 import com.vaadin.polymer.paper.element.PaperButtonElement;
+import com.vaadin.polymer.paper.element.PaperCardElement;
 import com.vaadin.polymer.paper.element.PaperDialogElement;
 import com.vaadin.polymer.paper.element.PaperDrawerPanelElement;
 import com.vaadin.polymer.paper.element.PaperFabElement;
@@ -33,7 +34,8 @@ public class ADictionaryClient implements EntryPoint {
 			PaperFabElement.SRC,
 			PaperDialogElement.SRC,
 			PaperInputElement.SRC,
-			PaperButtonElement.SRC), new Function(){
+			PaperButtonElement.SRC,
+			PaperCardElement.SRC), new Function(){
 		public Object call(Object arg){
 			startApplication();
 			return null;

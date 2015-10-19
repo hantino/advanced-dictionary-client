@@ -1,34 +1,54 @@
-<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-	xmlns:g='urn:import:com.google.gwt.user.client.ui' 
-	xmlns:p='urn:import:com.vaadin.polymer.paper.widget'>
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:p='urn:import:com.vaadin.polymer.paper.widget'>
 
 	<div class="dictionary vertical center-justified layout">
-		<style>
+		<style is="custom-style">
 			.dictionary-title {
 			padding-left: 20px;
 			font-size: 150%;
 			font-weight: normal;
 			}
 			
-			.paper-checkbox {
-			top: -2px;
+			#cards {
+			@apply(--layout-vertical);
+			@apply(--center-justified);
+			max-width: 400px;
+			margin-left: auto;
+			margin-right: auto;
 			}
 			
-			  #cards {
-      @apply(--layout-vertical);
-      @apply(--center-justified);
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+			.word-buttons{
+			
+			}
+			
+			paper-button.blue {
+			color: var(--paper-light-blue-500);
+			--paper-button-flat-focus-color: var(--paper-light-blue-50);
+			}
+			paper-button.blue:hover {
+			background: var(--paper-light-blue-50);
+			}
+
+			paper-button.hover:hover {
+			background: #58C4FA;
+			}
+			
+			paper-button.ripple {
+     	 --paper-button-ink-color: var(--paper-pink-a200);
+    		}
+			
 		</style>
 
 		<div class="vertical-section">
 			<paper-card>
 				<div class="card-actions">
-						<div ui:field="dictionaryTitle" class='dictionary-title'>Go to Google</div>
-						<paper-button ui:field="defineWordButton">Define Word</paper-button>
+					<div ui:field="dictionaryTitle" class='dictionary-title'>Go to Google</div>
+					<div class="word-buttons horizontal-section">
+						<paper-button ui:field="defineWordButton" class="blue ripple">Define</paper-button>
+						<paper-button ui:field="matchWordButton" class="blue ripple">Match</paper-button>
+						<paper-button ui:field="prefixWordButton" class="blue ripple">Prefix</paper-button>
+					</div>
 				</div>
 			</paper-card>
 		</div>

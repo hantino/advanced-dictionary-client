@@ -12,34 +12,36 @@
 			.toolbar {
 			background: #58C4FA !important;
 			}
-			
+
 			.leftMenu {
 			box-shadow: inset 0px 5px
 			6px -3px rgba(0, 0, 0, 0.4);
 			}
-			
+
 			.header {
 			font-size: 300%;
 			margin-left:
 			50px;
 			background: #58C4FA !important;
 			}
-			
+
 			.content {
 			padding: 15px;
 			}
-			
+
 			.connect {
 			position: absolute;
 			bottom: 20px;
 			right: 20px;
 			--paper-fab-background: var(--paper-blue-500);
 			}
-			
+
 			.dictionary {
-                font-size: 15px;
-                padding-left: 20px;
-            }
+			font-size: 15px;
+			padding-left: 10px;
+			padding-top: 10px;
+			}
+
 		</style>
 		<paper-drawer-panel ui:field="drawerPanel">
 			<div drawer="">
@@ -66,31 +68,28 @@
 			</div>
 			<div main="">
 				<paper-header-panel mode="seamed">
-					<paper-toolbar class="toolbar">			
+					<paper-toolbar class="toolbar">
 						<paper-icon-button ui:field="menu" icon="more-vert"
 							paper-drawer-toggle="" />
 						<span class="header">A Dictionary Client</span>
 					</paper-toolbar>
-					<div ui:field="content" class="content vertical center-justified layout" />
+					<div ui:field="content"
+						class="content vertical center-justified layout" />
 				</paper-header-panel>
 				<paper-fab ui:field="connectButton" icon="input" title="connect"
 					class="connect" />
 			</div>
 		</paper-drawer-panel>
-		<paper-dialog ui:field="connectHostDialog" entry-animation="fade-in-animation" 
-												   exit-animation="fade-out-animation" 
-												   class="dialog" modal="">
+		<paper-dialog ui:field="connectHostDialog"
+			entry-animation="fade-in-animation" exit-animation="fade-out-animation"
+			class="dialog" modal="">
 			<h2>Connect to a Dictionary Host</h2>
-			<paper-input ui:field="hostInput" 
-						    label="Host Name"
-						    auto-validate = ""
-						    pattern="^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$"
-						    error-message="Invalid Host Name"/>
-			<paper-input ui:field="portInput" 
-						    label="Port Number"
-						    auto-validate = ""
-						    pattern="^[0-9]+$"  
-						    error-message="Invalid Port Number!"/>							
+			<paper-input ui:field="hostInput" label="Host Name"
+				auto-validate=""
+				pattern="^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$"
+				error-message="Invalid Host Name" />
+			<paper-input ui:field="portInput" label="Port Number"
+				auto-validate="" pattern="^[0-9]+$" error-message="Invalid Port Number!" />
 			<div class="buttons">
 				<paper-button dialog-dismiss="">Cancel</paper-button>
 				<paper-button ui:field="confirmConnectButton"

@@ -28,6 +28,9 @@ public class Main extends Composite {
 	@UiField PaperInputElement hostInput;
 	@UiField PaperTextareaElement portInput;
 	@UiField PaperButtonElement confirmConnectButton;
+	@UiField PaperIconItemElement listDictionaries;
+	@UiField PaperIconItemElement menuSettings;
+	@UiField PaperIconItemElement menuAbout;
 
 	private static HostPort hp;
 	private DictionaryServiceAsync dictionarySvc = GWT.create(DictionaryService.class);
@@ -58,13 +61,26 @@ public class Main extends Composite {
 				}				
 			}
 		});
-
-	}
-
-	private void addHostPort(String host, String port) {
-		hp.setHost(host);
-		hp.setPort(port);
-		//content.appendChild(item.getElement());
+		
+		listDictionaries.addEventListener("click", new EventListener() {
+			@Override
+			public void handleEvent(Event event) {
+				if (dictionaries.size() > 0) {
+					for (Dictionary d: dictionaries) {
+						content.appendChild(d.getElement());
+					}				
+				}
+			}
+		});
+		
+		menuAbout.addEventListener("click", new EventListener() {
+			@Override
+			public void handleEvent(Event event) {
+				while (content.hasChildNodes()) {
+                    content.removeChild(content.getFirstChild());
+                }
+			}
+		});
 	}
 
 	private void refreshDictionaryList(){

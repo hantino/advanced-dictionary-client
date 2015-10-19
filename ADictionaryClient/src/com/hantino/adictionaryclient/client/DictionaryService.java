@@ -8,5 +8,5 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 @RemoteServiceRelativePath("dictionaries")
 public interface DictionaryService extends RemoteService {
 	
-	ArrayList<Dictionary> getDictionaries(HostPort hostport);
+	ArrayList<String> getDictionaries(HostPort hostport);
 }

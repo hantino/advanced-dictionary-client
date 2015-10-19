@@ -14,7 +14,7 @@ import com.vaadin.polymer.paper.element.PaperButtonElement;
 @SuppressWarnings("serial")
 public class Dictionary implements Serializable {
 
-	private final DivElement element;
+	private DivElement element;
 
 	private static DictionaryUiBinder uiBinder = GWT
 			.create(DictionaryUiBinder.class);

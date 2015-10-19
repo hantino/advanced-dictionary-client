@@ -29,7 +29,7 @@ public class Main extends Composite {
 	@UiField PaperTextareaElement portInput;
 	@UiField PaperButtonElement confirmConnectButton;
 
-	private HostPort hp = new HostPort();
+	private static HostPort hp;
 	private DictionaryServiceAsync dictionarySvc = GWT.create(DictionaryService.class);
 	
 	// Our data base is just an array of Dictionaries in memory
@@ -49,11 +49,13 @@ public class Main extends Composite {
 			@Override
 			public void handleEvent(Event event) {
 				if (!hostInput.getValue().isEmpty() && !portInput.getValue().isEmpty()) {
-					addHostPort(hostInput.getValue(), portInput.getValue());
+					hp = new HostPort(hostInput.getValue(), portInput.getValue());
+					//addHostPort(hostInput.getValue(), portInput.getValue());
 					// clear text fields
 					hostInput.setValue("");
 					portInput.setValue("");
-				}
+					refreshDictionaryList();
+				}				
 			}
 		});
 
@@ -65,7 +67,6 @@ public class Main extends Composite {
 		//content.appendChild(item.getElement());
 	}
 
-	@SuppressWarnings("unused")
 	private void refreshDictionaryList(){
 		// Initiliaze the service proxy.
 		if(dictionarySvc == null){
@@ -73,23 +74,25 @@ public class Main extends Composite {
 		}
 
 		// Set up the callback object
-		AsyncCallback<ArrayList<Dictionary>> callback = new AsyncCallback<ArrayList<Dictionary>>(){
+		AsyncCallback<ArrayList<String>> callback = new AsyncCallback<ArrayList<String>>(){
 
 			@Override
 			public void onFailure(Throwable caught) {
 			}
 
 			@Override
-			public void onSuccess(ArrayList<Dictionary> result) {
+			public void onSuccess(ArrayList<String> result) {
 				addDictionaryList(result);
 			}
 		};
-
 		dictionarySvc.getDictionaries(hp, callback);
 	}
 	
-	private void addDictionaryList(ArrayList<Dictionary> result) {
-        for (Dictionary d: result){
+	private void addDictionaryList(ArrayList<String> result) {
+        //content.appendChild(result.size());
+		for (String s: result){
+			Dictionary d = new Dictionary();
+			d.setDictionaryTitle(s);
             content.appendChild(d.getElement());
             dictionaries.add(d);
         }

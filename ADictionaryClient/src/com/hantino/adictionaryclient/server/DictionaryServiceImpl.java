@@ -39,10 +39,12 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 				}
 			}
 		} catch (IOException e) {
-			System.out.println("");
+    			System.err.println("Caught IOException: " + e.getMessage());
+		} catch (NullPointerException e) {
+			System.err.println("Caught NullPointerException: " + e.getMessage());
+		} finally {
 			closeCommand();
 		}
-		closeCommand();
 		return dicts;
 	}
 	

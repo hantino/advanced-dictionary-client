@@ -15,8 +15,4 @@ This web application uses [GWT-Polymer-Elements](https://github.com/vaadin/gwt-p
 * ~~Add basic functionality to 'Connect' Button~~
 * ~~Implement RPC structure to retrieve list of Dictionaries~~
 * ~~Display list of dictionaries~~
-* Add functionality to 'Define Word' button
-* Add functionality to 'Match Word' button
-* Add functionality to 'Prefix Word' button
-* ...
-* ...
+
